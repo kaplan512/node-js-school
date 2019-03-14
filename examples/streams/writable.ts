@@ -7,7 +7,7 @@ const outStream = new Writable({
     }
 });
 
-class myWritableStream extends Writable {
+class WritableStream extends Writable {
 }
 
 process.stdin.pipe(outStream);
