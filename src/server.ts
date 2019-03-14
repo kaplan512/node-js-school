@@ -5,14 +5,15 @@ import * as helmet from 'koa-helmet';
 import * as cors from '@koa/cors';
 import * as winston from 'winston';
 import * as dotenv from 'dotenv';
-import {createConnection} from 'typeorm';
+import { createConnection } from 'typeorm';
 import 'reflect-metadata';
 import * as PostgressConnectionStringParser from 'pg-connection-string';
 import * as serve from 'koa-static';
+
 const koaSwagger = require('koa2-swagger-ui');
-import {logger} from './logging';
-import {config} from './config';
-import {router} from './routes';
+import { logger } from './logging';
+import { config } from './config';
+import { router } from './routes';
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({path: '.env'});
@@ -66,7 +67,7 @@ createConnection({
     app.use(bodyParser());
 
     // JWT middleware -> below this line routes are only reached if JWT token is valid, secret as env variable
-    //app.use(jwt({ secret: config.jwtSecret }));
+    // app.use(jwt({ secret: config.jwtSecret }));
 
     // this routes are protected by the JWT middleware, also include middleware to respond with "Method Not Allowed - 405".
     app.use(router.routes()).use(router.allowedMethods());
