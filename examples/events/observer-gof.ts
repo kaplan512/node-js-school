@@ -40,4 +40,4 @@ observable.registerObserver(observer);
 observable.registerObserver(observer);
 
 observable.notifyObservers('Test event');
-observable.registerObserver(observer);
+

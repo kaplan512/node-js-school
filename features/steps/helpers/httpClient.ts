@@ -1,5 +1,5 @@
 import * as request from 'request-promise';
-const API_BASE_URL = process.env.BASE_URL;
+const API_BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 type RequestPromise = (
   options: request.RequestPromiseOptions

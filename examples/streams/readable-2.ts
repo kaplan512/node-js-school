@@ -8,8 +8,7 @@ const lowLevelReader = (size) => {
     return String.fromCharCode(currentCharCode++);
 }
 
-
-class InStream extends  Readable {
+class InStream extends Readable {
     _read(size) {
         this.push(lowLevelReader(size));
     }
